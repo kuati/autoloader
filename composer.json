@@ -1,0 +1,20 @@
+{
+    "name": "kuati/autoloader",
+    "type": "library",
+    "description": "",
+    "keywords": ["framework","micro","api","autoloader"],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bruno Cesar Souza Duarte",
+            "email": "brunokuati@gmail.com",
+            "homepage": ""
+        }
+    ],
+    "require": {
+        "php": ">=5.5"
+    },
+    "scripts": {
+    }
+}
