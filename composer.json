@@ -3,13 +3,13 @@
     "type": "library",
     "description": "",
     "keywords": ["framework","micro","api","autoloader"],
-    "homepage": "",
+    "homepage": "https://github.com/kuati/autoloader",
     "license": "MIT",
     "authors": [
         {
             "name": "Bruno Cesar Souza Duarte",
             "email": "brunokuati@gmail.com",
-            "homepage": ""
+            "homepage": "https://github.com/kuati"
         }
     ],
     "require": {
