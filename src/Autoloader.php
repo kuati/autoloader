@@ -15,9 +15,6 @@ class AutoLoader {
      * @param $directorys as array of directorys
      */
     public static function config(Array $directorys) : AutoLoader {
-        if (is_array($directorys)) {
-            throw new Exception("Argument error", 1);
-        }
         self::$directorys = $directorys;
         return new static;
     }
