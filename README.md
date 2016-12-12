@@ -5,4 +5,3 @@ This framework aims to bring developers the self-loading of two classes created 
 After two wigs:
 * Class loading;
 * Loading classes belonging to namespaces.
----
