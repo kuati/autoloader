@@ -24,6 +24,11 @@ class AutoLoader {
      */
     public static function register() {
         spl_autoload_register(function ($class) {
+
+            if (strrchr($class, '\\')) {
+                $class = substr(strrchr(ltrim($class), '\\'), 1);
+            }
+
             foreach(self::$directorys as $directory) {
                 $file = $directory.$class . '.php';
                 if(file_exists($file)) {

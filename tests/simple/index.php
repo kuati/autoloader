@@ -2,11 +2,10 @@
 
 include_once ("../../src/Autoloader.php");
 
-$directorys = Array("app/","app/sub/");
-
-Autoloader::config(
-    $directorys
-)->register();
+Autoloader::config([
+    "app/",
+    "app/sub/"
+])->register();
 
 new Hello();
 new SubHello();

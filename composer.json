@@ -2,7 +2,7 @@
     "name": "kuati/autoloader",
     "type": "library",
     "description": "This framework aims to present a simple way to have autoload in your project made in php.",
-    "version": "1.0",
+    "version": "1.0.1",
     "keywords": ["framework","api","autoloader"],
     "homepage": "https://github.com/kuati/autoloader",
     "license": "MIT",
