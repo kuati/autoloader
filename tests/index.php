@@ -5,8 +5,8 @@ include_once ("../src/Autoloader.php");
 // namespace => source code location
 (new Autoloader())->config([
     "" => "",
-    "outhers/" => "",
     "app/" => "App",
+    "outhers/" => "",
     "app/sub/" => "App\Sub"
 ])->register();
 
