@@ -1,7 +1,8 @@
 <?php
 
 /**
- * @todo Autoloader simple class
+ * @name Autoloader
+ * @todo Autoloader as simple class to automatically load requested classes at runtime
  * @author: kuati <brunokuati@gmail.com>
  * @license: MIT
  * @version 1.0.1
@@ -9,34 +10,33 @@
 class AutoLoader {
 
     /**
-     * @todo Is array of directorys and namespaces
+     * @todo Saves directory information and namespaces for use by autoloader
      */
     private static $descriptions = [];
 
     /**
-     * @todo 
+     * @todo Add new directory to be loaded by autoloader
      * @param $src as directorys location
      * @return $this
      */
-    public function addDirectory($src) {
-        self::$descriptions[$src] = "";
-        return $this;
+    public function addDirectory($src) : AutoLoader {
+        return self::addNamespace($src, "");
     }
 
     /**
-     * @todo 
+     * @todo Add new namespace and its directory to be loaded by autoloader
      * @param $src as directorys location
      * @param $npc as namespace name
      * @return $this
      */
-    public function addNamespace($src, $npc) {
+    public function addNamespace($src, $npc) : AutoLoader {
         self::$descriptions[$src] = $npc;
         return $this;
     }
 
     /**
-     * @todo Autoloader config funtion
-     * @param $directorys as array of directorys
+     * @todo Autoloader config function
+     * @param $descriptions as array of descriptions of namespaces and location
      */
     public function config(Array $descriptions) : AutoLoader {
         self::$descriptions = $descriptions;
