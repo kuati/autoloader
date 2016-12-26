@@ -2,13 +2,18 @@
 
 include_once ("../src/Autoloader.php");
 
-// namespace => source code location
-(new Autoloader())->config([
-    "" => "",
-    "app/" => "App",
-    "outhers/" => "",
-    "app/sub/" => "App\Sub"
-])->register();
+(new Autoloader())->addDirectory("")         // the currente directory of app
+                  ->addDirectory("outhers/")
+                  ->addNamespace("app/", "App")
+                  ->addNamespace("app/sub/", "App\Sub")
+                  ->register();
+// OR
+// (new Autoloader())->config([
+//     "" => "",
+//     "app/" => "App",
+//     "outhers/" => "",
+//     "app/sub/" => "App\Sub"
+// ])->register();
 
 use Hello as Hello;
 use App\Hello as HelloApp;
