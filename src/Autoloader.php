@@ -1,51 +1,48 @@
 <?php
 
-class Info {
-
-    public $npc, $src;
-
-    function __construct($npc, $src) {
-        $this->npc = $npc;
-        $this->src = $src;
-    }
-}
-
-
+/**
+ * @todo Autoloader class
+ * @author: kuati <brunokuati@gmail.com>
+ * @license: MIT
+ * @version 1.0.1
+ */
 class AutoLoader {
 
-    private static $directorys = [];
+    /**
+     * @todo array of directorys and namespaces
+     */
+    private static $dirs = [];
 
-    public static function config(Array $directorys) : AutoLoader {
-
-        foreach ($directorys as $npc => $src) {
-            self::$directorys[] = new Info($npc, $src);
-        }
-        return new static;
+    /**
+     * @todo Autoloader config funtion
+     * @param $directorys as array of directorys
+     */
+    public function config(Array $directorys) : AutoLoader {
+        self::$dirs = $directorys;
+        return $this;
     }
 
     /**
      * @todo Autoload register function
      */
     public static function register() {
-
+        
         spl_autoload_register(function ($class) {
             
-            $npc = "";
+            $namespace = "";
             $class = ltrim($class);
 
             if ($pos = strrpos($class, '\\')) {
-                $npc = substr($class, 0, $pos);
+                $namespace = substr($class, 0, $pos);
                 $class = substr($class, $pos+1);
             }
 
-            foreach (self::$directorys as $info) {
-                $file = $info->src.$class.'.php';
-                if (file_exists($file) && $npc === $info->npc) {
-                    include_once($file);
-                    return;
+            foreach (self::$dirs as $src => $npc) {
+                $file = $src.$class.'.php';
+                if (file_exists($file) && $npc === $namespace) {
+                    return include ($file);
                 }
             }
         });
     }
-    
 }
