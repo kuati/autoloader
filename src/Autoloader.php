@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @name Autoloader
  * @todo Autoloader as simple class to automatically load requested classes at runtime
  * @author: kuati <brunokuati@gmail.com>
  * @license: MIT
@@ -52,7 +51,7 @@ class AutoLoader {
             $class = ltrim($class);
             if ($pos = strrpos($class, '\\')) {
                 $namespace = substr($class, 0, $pos);
-                $class = substr($class, $pos+1);
+                $class = substr($class, ++$pos);
             }
             foreach (self::$descriptions as $src => $npc) {
                 $file = $src.$class.'.php';
