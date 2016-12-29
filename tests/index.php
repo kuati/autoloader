@@ -1,19 +1,6 @@
 <?php
 
-include_once ("../src/Autoloader.php");
-
-(new Autoloader)->addDirectory("")         // the currente directory of app
-                ->addDirectory("outhers/")
-                ->addNamespace("app/", "App")
-                ->addNamespace("app/sub/", "App\Sub")
-                ->register();
-// OR
-// (new Autoloader())->config([
-//     "" => "",
-//     "app/" => "App",
-//     "outhers/" => "",
-//     "app/sub/" => "App\Sub"
-// ])->register();
+include_once ("config.php");
 
 use Hello as Hello;
 use App\Hello as HelloApp;

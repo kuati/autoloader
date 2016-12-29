@@ -44,11 +44,13 @@ class AutoLoader {
 
     /**
      * @todo Autoload register function
+     * @access public
+     * @author kuati <brunokuati@gmail.com>
      */
     public function register() {
         spl_autoload_register(function ($class) {
             $namespace = "";
-            $class = ltrim($class);
+            $class = ltrim($class, "\\");
             if ($pos = strrpos($class, '\\')) {
                 $namespace = substr($class, 0, $pos);
                 $class = substr($class, ++$pos);
